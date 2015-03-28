@@ -1,0 +1,36 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+
+<div class="home">
+
+	<ul class="post-list">{% for post in site.posts %}<li>
+		<h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+
+		<span class="post-meta">
+			{{ post.date | date: "%b %-d, %Y" }}
+				• <a href="{{ post.url | prepend: site.baseurl }}#disqus_thread">Comments</a>
+			{% if post.tags != empty %}
+				• Tags: {% for tag in post.tags %} <a href="{{ tag | prepend: "/tag/" | prepend: site.baseurl }}">{{ tag }}</a> {% endfor %}
+			{% endif %}
+		</span>
+
+		{{ post.excerpt }}
+	</li>{% endfor %}</ul>
+
+	<!--<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>-->
+
+	<script type="text/javascript">
+		var disqus_shortname = 'saquib-me';
+
+		(function () {
+			var s = document.createElement('script'); s.async = true;
+			s.type = 'text/javascript';
+			s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+			(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+		}());
+	</script>
+
+</div>
