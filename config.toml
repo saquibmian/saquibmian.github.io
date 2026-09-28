@@ -1,0 +1,6 @@
+baseURL = "https://saquib.me/"
+locale = "en-us"
+title = "saquib mian"
+
+[markup.highlight]
+style = "rose-pine-dawn"

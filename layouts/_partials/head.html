@@ -1,0 +1,22 @@
+<meta charset="utf-8" />
+<base href="{{ .Site.BaseURL }}" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="canonical" href="{{ .Permalink }}" />
+
+<title>{{ .Title }}</title>
+
+{{ partial "social-meta.html" . }} {{ with .Site.Home.OutputFormats.Get "RSS"
+}}
+<link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+{{ end }}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="/css/styles.css" />
+<link
+  href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+  rel="stylesheet" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+  rel="stylesheet" />
+
+{{ partial "google-analytics.html" . }}

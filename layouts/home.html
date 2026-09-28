@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section id="main">
+  <h2>blog</h2>
+  <table style="margin-top: 1em">
+    <tbody>
+      {{range (where .Site.RegularPages "Section" "blog")}}
+      <tr>
+        <td style="width: 108px; vertical-align: top; font-size: 0.8em">
+          {{ .Date.Format "2006-01-02" }}
+        </td>
+        <td style="align-items: top">
+          <h4 style="margin: 0">
+            <a href="{{ .Permalink }}"> {{ .Title }}</a>
+          </h4>
+          {{ .Description }}
+        </td>
+      </tr>
+      {{ end }}
+    </tbody>
+  </table>
+</section>
+{{ end }}

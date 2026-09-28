@@ -1,0 +1,105 @@
+:root {
+  /* Palette from https://icolorpalette.com/palette/sunflower-sunflower-yellow-chocolate/ */
+  --steel-blue: #4682b4;
+  --chocolate: #d2691e;
+  --rich-mustard-gold: #ffc125;
+  --dark-slate-gray: #2f4f4f;
+  --white: #fafafa;
+
+  --fg: var(--dark-slate-gray);
+  --bg: var(--white);
+  --link-fg: var(--steel-blue);
+  --link-hover-fg: var(--chocolate);
+  --nav-link-fg: var(--dark-slate-gray);
+}
+
+/* Changes the background and text color when text is selected */
+::selection {
+  background-color: var(--steel-blue);
+  color: var(--white);
+}
+
+body {
+  font-family: "Atkinson Hyperlegible Mono", san-serif;
+  font-weight: 300;
+  font-optical-sizing: auto;
+  font-size: 20px;
+  line-height: 1.5em;
+  background-color: var(--bg);
+  color: var(--fg);
+  max-width: 800px;
+  margin: 0 auto;
+  strong {
+    font-weight: 600;
+  }
+  a {
+    text-decoration: none;
+    color: var(--link-fg);
+  }
+  span.tags {
+    a {
+      &::before {
+        content: "#";
+      }
+      padding: 0.2em 0.4em;
+      /* These colors match the highlight colors; update if changed */
+      background-color: color-mix(in srgb, var(--steel-blue) 10%, var(--white));
+      color: var(--steel-blue);
+      &:hover {
+        color: var(--link-hover-fg);
+      }
+    }
+  }
+  a:hover {
+    text-decoration: underline;
+    color: var(--link-hover-fg);
+    /* underline spacing */
+    text-underline-offset: 0.4em;
+    text-decoration-color: var(--rich-mustard-gold);
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a {
+      color: var(--nav-link-fg);
+    }
+    aside {
+      display: flex;
+      gap: 16px;
+    }
+  }
+  hr {
+    border: none;
+    height: 1px;
+    background-color: var(--fg);
+  }
+  div.highlight {
+    overflow-x: auto;
+  }
+  pre {
+    margin: 0;
+    padding: 1em;
+  }
+  :not(pre) > code {
+    padding: 0.2em 0.4em;
+    /* These colors match the highlight colors; update if changed */
+    background-color: color-mix(in srgb, var(--steel-blue) 10%, var(--white));
+    color: var(--steel-blue);
+  }
+
+  section#main {
+    h2::before {
+      content: "# ";
+      color: var(--chocolate);
+    }
+    h3::before {
+      content: "// ";
+      color: var(--rich-mustard-gold);
+    }
+    h4::before {
+      content: "> ";
+      color: var(--steel-blue);
+    }
+  }
+}
